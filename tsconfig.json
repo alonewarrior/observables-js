@@ -1,0 +1,16 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "commonjs",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "noImplicitAny": false,
+        "allowSyntheticDefaultImports": true,
+        "types": [
+            "mocha",
+            "chai"
+        ]
+    }
+}
+
