@@ -1,7 +1,6 @@
-import {eventEmitter} from '../src';
+import {eventEmitter, EventMetaKeys} from '../../src';
 import { expect } from 'chai';
 import 'reflect-metadata';
-import {EventMetaKeys} from '../src/constants';
 
 describe('@eventEmitter()', () => {
     it('should have a property:key pair on the metadata `src:event-emitter` equal to `someName`:TestClass', () => {

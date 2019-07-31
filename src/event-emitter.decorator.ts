@@ -1,4 +1,4 @@
-import { EventEmitter } from "src";
+import { EventEmitter } from 'events';
 import 'reflect-metadata';
 import {EventMetaKeys} from './constants';
 import {getEventEmitters} from './events.helper';

@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 import 'reflect-metadata';
-import {emitEvent, eventEmitter} from '../src';
+import {emitEvent, eventEmitter} from '../../src';
 
 describe('@emitEvent()', function () {
     it('should throw an error if the class of a decorated function is not decorated with @eventEmitter()', () => {
@@ -10,6 +10,7 @@ describe('@emitEvent()', function () {
             myFunc() {
             }
         }
+
 
         const myClass = new TestClass();
 

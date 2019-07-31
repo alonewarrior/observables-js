@@ -9,7 +9,8 @@
         "allowSyntheticDefaultImports": true,
         "types": [
             "mocha",
-            "chai"
+            "chai",
+            "node"
         ]
     }
 }

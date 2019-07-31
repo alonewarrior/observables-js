@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 import 'reflect-metadata';
-import {getListeners, listener} from '../src';
+import {getListeners, listener} from '../../src';
 
 describe('@listener()', () => {
     it('should register the listener for an event with the provided name', () => {

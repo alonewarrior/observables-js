@@ -1,7 +1,6 @@
 import {expect} from 'chai';
 import 'reflect-metadata';
-import {addListener, getEventEmitters, getListeners, getListenersByName} from '../src';
-import {EventMetaKeys} from '../src/constants';
+import {addListener, getEventEmitters, getListeners, getListenersByName, EventMetaKeys} from '../../src';
 
 describe('Events Helper', function () {
     beforeEach(() => {
