@@ -1,6 +1,6 @@
 {
     "name": "@alonewarrior/observables-js",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "types": "dist/index.d.ts",
     "main": "dist/index.js",
     "private": false,
@@ -8,8 +8,8 @@
         "build": "tsc"
     },
     "files": [
-        "**/*.js",
-        "**/*.d.ts"
+        "dist/**/*.js",
+        "dist/**/*.d.ts"
     ],
     "devDependencies": {
         "@types/chai": "^4.1.7",
