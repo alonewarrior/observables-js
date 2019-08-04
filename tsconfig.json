@@ -10,7 +10,6 @@
         "outDir": "dist",
         "inlineSourceMap": true,
         "inlineSources": true,
-        "outFile": "dist/index",
         "declaration": true,
         "esModuleInterop": true,
         "types": [
