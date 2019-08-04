@@ -2,49 +2,69 @@ import { expect } from 'chai';
 import * as td from 'testdouble';
 import 'reflect-metadata';
 import {EventEmitter} from 'events';
-import {Action} from '../../../src';
-
+import {Action, emitEvent, Observable} from '../../../src';
 
 describe('Event Emitter Testing', () => {
-    let emitter: EventEmitter;
+    const event1 = 'myEvent';
+    const event2 = 'mySecondEvent';
+    let observable: ObservableTestClass;
     beforeEach(() => {
-        emitter = new EventEmitter();
+        observable = new ObservableTestClass();
     });
-    describe('using event emitter', function () {
-        it('should run event handler for `myEvent` with a value', () => {
+    describe('using observable', function () {
+        let someFunc: Action;
+        let otherFunc: Action<[string]>;
+        beforeEach(() => {
+            someFunc = td.func('someFunc') as Action;
+            otherFunc = td.func('otherFunc') as Action<[string]>;
+        });
+        afterEach(() => {
+            observable.off(event1, someFunc);
+            observable.off(event2, otherFunc);
+        });
+        it('should call otherFunc', () => {
             // given
-            const myEventHandler = td.func('eventHandler') as Action<any>;
-            emitter.on('myEvent', myEventHandler);
+            class TestClass {
+                constructor(private readonly _observable: ObservableTestClass) {}
+                something = this._observable.on(event1, someFunc);
+                somethingElse = this._observable.on(event2, otherFunc);
+            }
+            new TestClass(observable);
 
             // when
-            emitter.emit('myEvent', 'some value');
+            observable.func2('data2');
 
             // then
-            td.verify(myEventHandler('some value'));
+            td.verify(otherFunc('data2'));
         });
-        it('should run both event handlers for `myEvent`', () => {
+        it('should call someFunc', () => {
             // given
-            const myEventHandler = td.func('eventHandler') as Action<any>;
-            const myEventHandler2 = td.func('eventHandler') as Action<any>;
-            emitter.on('myEvent', myEventHandler);
-            emitter.on('myEvent', myEventHandler2);
-
+            class TestClass {
+                constructor(private readonly _observable: ObservableTestClass) {}
+                something = this._observable.on(event1, someFunc);
+                somethingElse = this._observable.on(event2, otherFunc);
+            }
+            new TestClass(observable);
             // when
-            emitter.emit('myEvent');
+            observable.func1('data');
 
             // then
-            td.verify(myEventHandler());
-            td.verify(myEventHandler2());
-        });
-        it('should run event handler for `myEvent`', () => {
-            // given
-            const myEventHandler = td.func('eventHandler') as Action<any>;
-            emitter.on('myEvent', myEventHandler);
-
-            // when
-            emitter.emit('myEvent');
-
-            td.verify(myEventHandler());
+            td.verify(someFunc());
         });
     });
+
+    class Observer {
+        constructor(private readonly _observable: ObservableTestClass) {}
+    }
+
+    class ObservableTestClass extends Observable {
+
+        @emitEvent(event1)
+        func1(someData: any) {
+        }
+
+        func2(otherData: any) {
+            this.notify(event2, otherData);
+        }
+    }
 });

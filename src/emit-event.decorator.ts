@@ -1,14 +1,15 @@
 import 'reflect-metadata';
+import {Observable} from './observable';
 
 export function emitEvent(eventName: string) {
     return (target, key, descriptor) => {
         const oldFunc = target[key];
+        if (Object.getPrototypeOf(target.constructor) !== Observable) {
+            throw new Error('Cannot emit events from a class not extending Observable');
+        }
         descriptor.value = function (...args) {
-            if (!target['_eventEmitter']) {
-                throw new Error(`Function ${key}() cannot be decorated with a @emitEvent() since ${target.constructor.name} is not decorated with @eventEmitter()`);
-            }
-            oldFunc(...args);
-            target['_eventEmitter'].emit(eventName);
+            const result = oldFunc(...args);
+            this['notify'](eventName, result);
         };
         return descriptor;
     };
