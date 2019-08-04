@@ -1,25 +1,29 @@
 {
-  "name": "web-app",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {},
-  "dependencies": {
-    "@types/chai": "^4.1.7",
-    "@types/mocha": "^5.2.7",
-    "@types/node": "^12.6.8",
-    "@types/request": "^2.48.1",
-    "chai": "^4.2.0",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
-    "express": "~4.16.0",
-    "kontainer-di": "^0.9.9",
-    "mocha": "^6.2.0",
-    "morgan": "~1.9.0",
-    "reflect-metadata": "^0.1.13",
-    "request": "^2.88.0",
-    "testdouble": "^3.12.2",
-    "ts-mocha": "^6.0.0",
-    "ts-node": "^8.3.0",
-    "typescript": "^3.5.3"
-  }
+    "name": "observables-js",
+    "version": "1.0.0",
+    "types": "dist/index.d.ts",
+    "main": "dist/index.js",
+    "private": true,
+    "scripts": {
+        "build": "tsc"
+    },
+    "dependencies": {
+        "@types/chai": "^4.1.7",
+        "@types/mocha": "^5.2.7",
+        "@types/node": "^12.6.8",
+        "@types/request": "^2.48.1",
+        "chai": "^4.2.0",
+        "cookie-parser": "~1.4.3",
+        "debug": "~2.6.9",
+        "express": "~4.16.0",
+        "kontainer-di": "^0.9.9",
+        "mocha": "^6.2.0",
+        "morgan": "~1.9.0",
+        "reflect-metadata": "^0.1.13",
+        "request": "^2.88.0",
+        "testdouble": "^3.12.2",
+        "ts-mocha": "^6.0.0",
+        "ts-node": "^8.3.0",
+        "typescript": "^3.5.3"
+    }
 }
