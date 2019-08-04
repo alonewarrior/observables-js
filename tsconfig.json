@@ -9,6 +9,8 @@
         "allowSyntheticDefaultImports": true,
         "outDir": "dist",
         "inlineSourceMap": true,
+        "inlineSources": true,
+        "outFile": "dist/index",
         "declaration": true,
         "esModuleInterop": true,
         "types": [
@@ -16,6 +18,10 @@
             "chai",
             "node"
         ]
-    }
+    },
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
 }
 
