@@ -7,9 +7,10 @@
         "emitDecoratorMetadata": true,
         "noImplicitAny": false,
         "allowSyntheticDefaultImports": true,
-        "outDir": "./dist",
+        "outDir": "dist",
         "inlineSourceMap": true,
         "declaration": true,
+        "esModuleInterop": true,
         "types": [
             "mocha",
             "chai",
