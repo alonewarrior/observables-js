@@ -29,7 +29,7 @@
         "@types/request": "^2.48.1",
         "cookie-parser": "~1.4.3",
         "debug": "~2.6.9",
-        "express": "~4.16.0",
+        "express": "~4.17.3",
         "kontainer-di": "^0.9.9",
         "morgan": "~1.9.0",
         "reflect-metadata": "^0.1.13",
